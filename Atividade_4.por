@@ -15,6 +15,12 @@ programa
 			escreva("\nDeseja testar outros tamanhos?(Digite 1 para sim e 2 para não: ")
 			leia(resposta)
 			limpa()
+			faca
+			{
+				escreva("Número inválido, tente outra vez: ")
+				leia(resposta)
+			}enquanto(resposta == 0 ou resposta >2)
+			limpa()
 		}enquanto(resposta <= 1)
 	}
 }
