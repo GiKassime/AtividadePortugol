@@ -9,8 +9,11 @@ real a,b,c
 	cadeia t = ""
 	funcao inicio()
 	{
+		escreva("Digite a primeira medida: ")
 		leia(a)
+		escreva("Digite a segunda medida: ")
 		leia(b)
+		escreva("Digite a terceira medida: ")
 		leia(c)
 		Triangulo()
 		Equilatero()
