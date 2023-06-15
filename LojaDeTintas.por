@@ -22,6 +22,7 @@ programa
 					leia(latas)
 					soma_carrinho(latas)
 					escreva(latas, " latas deu o total de RS", preco)
+					escreva("ITEM ADICIONADO AO CARRINHO!!")
 					limpar()
 					menu()
 				pare
@@ -44,7 +45,7 @@ programa
 				pare
 					
 				caso 0:
-					escreva("Obrigado pela preferencia!\nO valor total de sua compra foi RS",soma,"Voce comprou ", totlat," latas de tinta")
+					escreva("Obrigado pela preferencia!\nO valor total de sua compra foi RS",soma,"\nVoce comprou ", totlat," latas de tinta")
 				pare
 				caso 3:
 					escreva("Voce comprou até o momento ",totlat," latas de tinta\nTotalizando RS", soma)
