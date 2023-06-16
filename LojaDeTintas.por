@@ -22,7 +22,7 @@ programa
 					leia(latas)
 					soma_carrinho(latas)
 					escreva(latas, " latas deu o total de RS", preco)
-					escreva("ITEM ADICIONADO AO CARRINHO!!")
+					escreva("\nITEM ADICIONADO AO CARRINHO!!")
 					limpar()
 					menu()
 				pare
@@ -92,11 +92,12 @@ programa
 	funcao calculo_area(real a){
 		totallatas = (area/3)/18
 			se (totallatas >0 e totallatas < 1){
-				a = 1
-			}senao se(totallatas <= 0){
-				a = 0
+				totallatas += 1
 			}senao se(totallatas == 0){
-				a = 1
+				totallatas = 0
+			}
+			se(area > 0){
+				totallatas += 1
 			}
 	}
 	funcao tira_carrinho(inteiro r){
