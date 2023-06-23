@@ -2,114 +2,76 @@ programa
 {
 	inclua biblioteca Matematica --> m
 	inclua biblioteca Util	
-	inteiro resposta,resposta1,resposta2, retirar
-	inteiro totlat = 0
-	real preco = 0
-	inteiro latas
+	inteiro resposta
+	inteiro quant
 	real soma = 0
-	real area
-	inteiro totallatas = 0
+
 	
 	funcao inicio()
 	{
-		menu()
+		
 		faca{
-			escreva("\nDigite o número aqui: ")
+			limpa()
+			menu()
+			escreva("\nDigite o seu pedido aqui: ")
 			leia(resposta)
 			escolha(resposta){
-				caso 1:
-					escreva("Quantas latas deseja comprar?: ")
-					leia(latas)
-					soma_carrinho(latas)
-					escreva(latas, " latas deu o total de RS", preco)
-					escreva("\nITEM ADICIONADO AO CARRINHO!!")
-					limpar()
-					menu()
+				caso 100:
+					calcula_preco(5)
+				pare
+				caso 101:
+					calcula_preco(2.6)
+				pare
+				caso 102:
+				     calcula_preco(3.80)
+				pare
+				caso 103:
+				     calcula_preco(9)
+				pare
+				caso 104:
+				     calcula_preco(11)
+				pare
+				caso 105:
+					calcula_preco(3)
+				pare
+				caso 106:
+					calcula_preco(1000)
 				pare
 				caso 2:
-					escreva("\nQual a Area em metros quadrados a ser pintada?\nNossa cobertura da tinta é de 1 litro para cada 3 metros quadrados\nDigite aqui: ")
-					leia(area)
-					calculo_area(area)
-					escreva("\nPara a area de ",area," seram necessárias ", totallatas, "  latas de tinta.")
-					escreva("\nDeseja adicionar as latas ao carrinho?\n1 = SIM\n2 = NÃO\nDigite: ")
-					leia(resposta1)
-					se(resposta1 == 1){
-						soma_carrinho(totallatas)
-						escreva("ITEM ADICIONADO AO CARRINHO!!")
-						limpar()
-						menu()
-					}senao se(resposta == 2){
-						limpar()
-						menu()
-					}
+					soma_tot()
 				pare
-					
-				caso 0:
-					escreva("Obrigado pela preferencia!\nO valor total de sua compra foi RS",soma,"\nVoce comprou ", totlat," latas de tinta")
-				pare
-				caso 3:
-					escreva("Voce comprou até o momento ",totlat," latas de tinta\nTotalizando RS", soma)
-					escreva("\nDeseja retirar alguma?\n1 = SIM\n2 = NÃO\nDigite: ")
-					leia(resposta2)
-					escolha(resposta2){
-						caso 1:
-							escreva("Quantas deseja retirar?: ")
-							leia(retirar)
-							se(retirar <= totlat){
-								tira_carrinho(retirar)
-								escreva("Voce retirou ", retirar," latas do carrinho\nSeu carrinho possui ", totlat," latas\nTotalizando RS",soma)
-								limpar()
-								menu()
-							}senao se(retirar > totlat){
-								escreva("Essa quantidade não condiz com seu carrinho!!")
-								limpar()
-								menu()
-							}
-						pare
-						caso 2:
-						pare
-					}
-				pare
-			}
-		}enquanto(resposta != 0)	
+		}
+		}enquanto(resposta != 2)	
+	   
 	}
 	funcao menu(){
 		escreva("\n\t*****************************************\t")
 		escreva("\n\t*           LANCHONETE DO CAMPUS        *\t")
 		escreva("\n\t*****************************************\t")
 		escreva("\n\t* CÓDIGO ESPECIFICAÇÃO   PREÇO UNITÁRIO *\t")
-		escreva("\n\t* 100 -  CACHORRO QUENTE 5.00           *\t")
-		escreva("\n\t* 101 -  BAURU                          *\t")
-		escreva("\n\t* 102 -  BAURU C/OVO                    *\t")
-		escreva("\n\t* 103 -  HAMBURGUER                     *\t")
-		escreva("\n\t* 104 -  CHEESEBURGUER                  *\t")
-		escreva("\n\t* 105 -  REFRIGERANTE                   *\t")
-		escreva("\n\t* 106 -  SEMENTE DOS DEUSES             *\t")
+		escreva("\n\t* 100 -  CACHORRO QUENTE    5.00        *\t")
+		escreva("\n\t* 101 -  BAURU              2.60        *\t")
+		escreva("\n\t* 102 -  BAURU C/OVO        3.80        *\t")
+		escreva("\n\t* 103 -  HAMBURGUER         9.00        *\t")
+		escreva("\n\t* 104 -  CHEESEBURGUER      11.00       *\t")
+		escreva("\n\t* 105 -  REFRIGERANTE       3.00        *\t")
+		escreva("\n\t* 106 -  SEMENTE DOS DEUSES 1000.00     *\t")
 		escreva("\n\t*****************************************\t")
-		escreva("\n\t* C - VER CARRINHO                      *\t")
-		escreva("\n\t* S - SAIR                              *\t")
+		escreva("\n\t* 2 - SAIR                              *\t")
 		escreva("\n\t*****************************************\t")
 
 	}
-	funcao soma_carrinho(inteiro l){
-		preco = m.arredondar(l*480,2)
-		soma += preco
-		totlat += l
+	funcao calcula_preco(real valor){
+		escreva("\nQual a quantidade?: ")
+		leia(quant)
+		valor = (quant*valor)
+		soma = soma + valor
+		escreva("\nO valor desse pedido é igual a ",valor)
+		Util.aguarde(2000)
 	}
-	funcao calculo_area(real a){
-		totallatas = (area/3)/18
-			se (totallatas >0 e totallatas < 1){
-				totallatas += 1
-			}senao se(totallatas == 0){
-				totallatas = 0
-			}
-			se(area > 0){
-				totallatas += 1
-			}
-	}
-	funcao tira_carrinho(inteiro r){
-		totlat -= r
-		soma -= (r*480)
+	funcao soma_tot(){
+		limpa()
+		escreva("Obrigado pela compra\nO valor total é igual a ", soma)
 	}
 	funcao limpar(){
 		Util.aguarde(3000)
